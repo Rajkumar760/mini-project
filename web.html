@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 For My Azhagi - Shivani ❤️ Appu 💖</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 10% 20%, #ff0844, #7209b7, #3a0ca3, #4361ee);
+            background-size: 400% 400%;
+            animation: galaxyMove 20s ease infinite;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        @keyframes galaxyMove {
+            0% { background-position: 0% 0%; }
+            25% { background-position: 100% 0%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* 3D Floating Hearts */
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart-3d {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.4);
+            font-size: 30px;
+            animation: heartFloat 15s linear infinite;
+        }
+
+        @keyframes heartFloat {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+                transform: translateY(80vh) scale(0.5);
+            }
+            90% {
+                opacity: 0.8;
+                transform: translateY(20vh) scale(1.2);
+            }
+            100% {
+                transform: translateY(-100px) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        /* Glowing Orbs */
+        .glowing-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            pointer-events: none;
+            animation: orbFloat 15s infinite;
+        }
+
+        .orb1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 20, 147, 0.2);
+            top: 10%;
+            left: 10%;
+        }
+
+        .orb2 {
+            width: 600px;
+            height: 600px;
+            background: rgba(114, 9, 183, 0.2);
+            bottom: 10%;
+            right: 10%;
+            animation-delay: -5s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0); }
+            33% { transform: translate(50px, 50px); }
+            66% { transform: translate(-50px, -50px); }
+        }
+
+        /* Main Container */
+        .container {
+            position: relative;
+            z-index: 100;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Question Section */
+        .question-section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .question-section.hidden {
+            display: none;
+        }
+
+        /* 3D Question Card */
+        .question-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-radius: 100px;
+            padding: 70px;
+            max-width: 1100px;
+            width: 100%;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6), 0 0 100px #ff69b4;
+            text-align: center;
+            animation: cardFloat 10s infinite;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5.5rem;
+            background: linear-gradient(135deg, #fff, #ffb6c1, #ff69b4, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+        }
+
+        .question-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            background: linear-gradient(135deg, #ffd700, #ff69b4, #ff1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 50px 0;
+        }
+
+        /* Counter Display */
+        .counter-display {
+            background: rgba(255, 105, 180, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 70px;
+            padding: 20px 40px;
+            display: inline-block;
+            margin-bottom: 40px;
+            border: 2px solid rgba(255,215,0,0.5);
+        }
+
+        .counter-display span {
+            font-size: 2.2rem;
+            color: white;
+            margin-left: 20px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        /* Button Container */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin: 60px 0;
+            flex-wrap: wrap;
+            min-height: 250px;
+        }
+
+        /* YES Button */
+        .yes-btn {
+            padding: 35px 120px;
+            font-size: 3.5rem;
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(135deg, #00ff87, #00e0ff);
+            border: 5px solid white;
+            border-radius: 120px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 20px 0 #008f5e, 0 0 100px #00ff87;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 100;
+        }
+
+        .yes-btn:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 0 #008f5e, 0 0 150px #00ff87;
+        }
+
+        /* NO Button */
+        .no-btn {
+            padding: 30px 100px;
+            font-size: 3rem;
+            font-family: 'Dancing Script', cursive;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border: 5px solid white;
+            border-radius: 100px;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 20px 0 #8b0000, 0 0 100px #ff416c;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 90;
+            min-width: 300px;
+        }
+
+        .no-btn:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 0 #8b0000, 0 0 150px #ff416c;
+        }
+
+        /* Funny Messages */
+        .funny-message {
+            position: fixed;
+            color: white;
+            font-size: 2.2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            padding: 20px 50px;
+            border-radius: 70px;
+            border: 4px solid white;
+            z-index: 10000;
+            pointer-events: none;
+            animation: messagePop 2s ease-out forwards;
+        }
+
+        @keyframes messagePop {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            20% {
+                transform: scale(1.3);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(0) translateY(-200px);
+                opacity: 0;
+            }
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            display: none;
+        }
+
+        .content-wrapper.show {
+            display: block;
+        }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            padding: 30px;
+            border-radius: 100px;
+        }
+
+        .tab-btn {
+            padding: 20px 50px;
+            font-size: 1.6rem;
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 70px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.5s;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tab-btn:hover {
+            background: rgba(255,105,180,0.3);
+            transform: translateY(-5px);
+            border-color: white;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            border-color: white;
+        }
+
+        /* Content Panels */
+        .content-panel {
+            display: none;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(30px);
+            border: 3px solid rgba(255,105,180,0.5);
+            border-radius: 100px;
+            padding: 60px;
+            margin: 30px 0;
+            color: white;
+        }
+
+        .content-panel.active {
+            display: block;
+            animation: fadeIn 1s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Love Letter Section */
+        .love-letter {
+            font-size: 1.5rem;
+            line-height: 2;
+            padding: 80px;
+            border-left: 15px solid #ff1493;
+            border-right: 5px solid #ffd700;
+        }
+
+        .love-letter h2 {
+            font-size: 4.5rem;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #ffd700, #ff69b4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Great Vibes';
+            text-align: center;
+        }
+
+        .tamil-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            line-height: 2.2;
+            color: #ffd700;
+            margin: 30px 0;
+            padding: 30px;
+            background: rgba(255,215,0,0.1);
+            border-radius: 50px;
+            border-left: 10px solid #ffd700;
+        }
+
+        .signature {
+            text-align: right;
+            font-size: 3.5rem;
+            margin-top: 60px;
+            color: #ffd700;
+            font-family: 'Great Vibes';
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 50px 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 50px;
+            overflow: hidden;
+            border: 5px solid rgba(255,255,255,0.3);
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            border-color: #ff1493;
+            box-shadow: 0 0 50px #ff1493;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, #ff1493, transparent);
+            color: white;
+            padding: 40px;
+            transform: translateY(100%);
+            transition: all 0.3s;
+            font-size: 1.6rem;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        
+        /* Memories Timeline */
+        .memories-timeline {
+            position: relative;
+            padding: 80px 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 8px;
+            background: linear-gradient(180deg, #ff1493, #ffd700);
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .memory-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 80px 0;
+            position: relative;
+        }
+
+        .memory-content {
+            width: 45%;
+            background: rgba(255,255,255,0.05);
+            padding: 50px;
+            border: 3px solid rgba(255,105,180,0.5);
+            border-radius: 60px;
+            transition: all 0.3s;
+        }
+
+        .memory-content:hover {
+            transform: scale(1.05);
+            background: rgba(255,20,147,0.3);
+            border-color: #ffd700;
+        }
+
+        .memory-date {
+            font-size: 2.2rem;
+            color: #ffd700;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        .memory-desc {
+            font-size: 1.4rem;
+            line-height: 2;
+        }
+
+        .memory-emoji {
+            font-size: 5rem;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 4px solid white;
+        }
+
+        .memory-item.left .memory-content {
+            margin-right: auto;
+            margin-left: 80px;
+        }
+
+        .memory-item.right .memory-content {
+            margin-left: auto;
+            margin-right: 80px;
+        }
+
+        .memory-item.left .memory-emoji {
+            right: 30px;
+        }
+
+        .memory-item.right .memory-emoji {
+            left: 30px;
+        }
+
+        /* Cringe Section */
+        .cringe-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .cringe-item {
+            position: relative;
+            border-radius: 50px;
+            overflow: hidden;
+            border: 5px dashed #ff69b4;
+            aspect-ratio: 1;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cringe-item:hover {
+            transform: scale(1.1);
+            border-color: #ffd700;
+        }
+
+        .cringe-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cringe-sticker {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 3rem;
+            background: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            padding: 15px;
+        }
+
+        /* Countdown Section */
+        .countdown-container {
+            background: rgba(255,20,147,0.2);
+            border: 3px solid white;
+            border-radius: 100px;
+            padding: 60px;
+            margin: 50px 0;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .timer-block {
+            background: rgba(0,0,0,0.4);
+            padding: 40px;
+            border-radius: 70px;
+            min-width: 180px;
+            border: 3px solid #ffd700;
+        }
+
+        .timer-number {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        /* Promise Grid */
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .promise-card {
+            background: rgba(255,255,255,0.05);
+            padding: 50px;
+            border-radius: 70px;
+            border: 2px solid rgba(255,105,180,0.5);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .promise-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,20,147,0.4);
+            border-color: #ffd700;
+        }
+
+        .promise-emoji {
+            font-size: 6rem;
+            margin-bottom: 25px;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            border: 5px solid white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 0 50px #ff1493;
+            transition: all 0.3s;
+            z-index: 1000;
+            display: none;
+        }
+
+        .fab:hover {
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .gallery-grid, .cringe-grid, .promise-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .names { font-size: 3.5rem; }
+            .question-text { font-size: 3rem; }
+            .question-card { padding: 30px; }
+            .yes-btn, .no-btn { font-size: 2rem; padding: 20px 50px; }
+            .gallery-grid, .cringe-grid, .promise-grid {
+                grid-template-columns: 1fr;
+            }
+            .memory-item {
+                flex-direction: column;
+            }
+            .memory-content {
+                width: 90%;
+                margin: 20px 0 !important;
+            }
+            .timeline-line {
+                left: 30px;
+            }
+            .memory-emoji {
+                display: none;
+            }
+            .love-letter { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 3D Floating Hearts -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <!-- Glowing Orbs -->
+    <div class="glowing-orb orb1"></div>
+    <div class="glowing-orb orb2"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Question Section -->
+        <div class="question-section" id="questionSection">
+            <div class="question-card">
+                <div class="names">
+                    Shivani ❤️ Appu
+                </div>
+                
+                <div class="question-text">
+                    En Azhagi, Will You Be My Valentine? 💖
+                </div>
+
+                <!-- Click Counter -->
+                <div class="counter-display">
+                    <i class="fas fa-heart-broken"></i> Times Tempted: <span id="clickCounter">0</span>
+                </div>
+
+                <!-- Button Container -->
+                <div class="button-container" id="buttonContainer">
+                    <button class="yes-btn" id="yesBtn">YES! 💖</button>
+                    <button class="no-btn" id="noBtn">NO 😢</button>
+                </div>
+
+                <p style="color: rgba(255,255,255,0.9); margin-top: 40px; font-size: 1.5rem;">
+                    <i class="fas fa-arrow-up"></i> Every "No" makes the YES button bigger! <i class="fas fa-arrow-up"></i>
+                </p>
+            </div>
+        </div>
+
+        <!-- Content Wrapper (Shows after YES) -->
+        <div class="content-wrapper" id="contentWrapper">
+            <!-- Navigation Tabs -->
+            <div class="nav-tabs">
+                <button class="tab-btn active" data-tab="letter">
+                    <i class="fas fa-envelope"></i> Love Letter
+                </button>
+                <button class="tab-btn" data-tab="gallery">
+                    <i class="fas fa-images"></i> Gallery
+                </button>
+               
+                <button class="tab-btn" data-tab="memories">
+                    <i class="fas fa-clock"></i> Our Story
+                </button>
+                <button class="tab-btn" data-tab="cringe">
+                    <i class="fas fa-camera-retro"></i> Cringe
+                </button>
+                <button class="tab-btn" data-tab="surprise">
+                    <i class="fas fa-gift"></i> Surprise
+                </button>
+            </div>
+
+            <!-- LOVE LETTER PANEL -->
+            <div id="letterPanel" class="content-panel active">
+                <div class="love-letter">
+                    <h2><i class="fas fa-heart"></i> To My Dearest Shivani <i class="fas fa-heart"></i></h2>
+                    
+                    <div class="letter-content">
+                        <p>Happy Valentine's Day, My Angel ❤️</p>
+                        
+                        <div class="tamil-text">
+                            <p>Indha letter ah ezhudhum pothu literally, en heart romba calm ah irukku… because adhu un peyar solli dhaan beat aagudhu. Unna first time paatha moment la irundhu, en life la oru soft change vandhuduchu. Adhu loud ah illa… aana deep ah.</p>
+                            
+                            <p>Shivani, nee en life la vandha apram dhaan enaku purinjuchu — real love na enna nu. Adhu just romance illa… adhu oru feeling of belonging. Un kooda irukkum pothu dhaan naan complete ah feel panren.</p>
+                            
+                            <p>Un sirippu paatha udane en day bright aagidum.<br>
+                            Un voice ketta udane en stress ellam odirum
+                            </p>  
+                            <p>Sometimes naan yosippen… un kannu la naan therinjukara love epdi ivlo pure ah irukku nu. Un eyes la irukkara affection enaku romba special. Nee enna paakura maadhiri vera yaarum paakave maatanga nu thonum.</p>
+                            
+                            <p>Shivani…<br>
+                            Nee pakkathula irukumbothu enaku time stop aaganum pola irukkum.<br>
+                            Una hug pannum pothu world la vera yedhuvum thevai illa nu feel panren.<br>
+                            Un hair ah kothi vitutey pesra apolamn… adhu romba simple moment dhaan… aana en heart ku adhu unforgettable.</p>
+                            
+                            <p>Naan romba possessive ah iruppen sometimes… aana adhu control illa. Adhu en love romba deep ah irukkaradhunaala dhaan. Unna paathu "nee en aal" nu solra feel ku vaartha ila… adhu romba real.</p>                           
+                            <p>Life la evlo problems vandhaalum, un kooda irundha naan strong. Nee en strength um dhaan, en silence ku artham nee.</p>
+                        </div>
+                        
+                        <p style="font-size: 2rem; margin: 40px 0;">I promise you:</p>
+                        
+                        <ul style="list-style: none; margin: 30px 0;">
+                            <li style="margin: 20px 0;">✨ Un kai vida maaten.</li>
+                            <li style="margin: 20px 0;">✨ Un heart hurt aaga vida maaten.</li>
+                            <li style="margin: 20px 0;">✨ Un dreams support pannitu, un success celebrate panna naan first aa iruppen.</li>
+                            <li style="margin: 20px 0;">✨ Yedhu nadandhaalum, un pakkathula dhaan naan iruppen...irukenn</li>
+                        </ul>
+                        
+                        <div class="tamil-text">
+                            <p>Shivani, en future la naan paakura ella dreams um… adhulam un kooda dhaan. Simple life irundhaalum parava illa… aana adhu un kooda irukanum.</p>
+                            
+                            <p>Indha Valentine's Day la naan un kitte sollanum:</p>
+                        </div>
+                        
+                        <p style="font-size: 2.5rem; text-align: center; margin: 40px 0; color: #ffd700;">
+                            "I don't just love you…<br>
+                            I crave your presence.<br>
+                            I don't just miss you…<br>
+                            I feel incomplete without you."
+                        </p>
+                        
+                        <div class="signature">
+                            Forever unnudaiya,<br>
+                            <span style="font-size: 4rem; color: #ffd700;">Appu ❤️</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GALLERY PANEL -->
+            <div id="galleryPanel" class="content-panel">
+                <h2 style="font-size: 4rem; text-align: center; margin-bottom: 50px; font-family: 'Great Vibes';">
+                    <i class="fas fa-camera"></i> Our Beautiful Moments <i class="fas fa-camera"></i>
+                </h2>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 4.37.11 PM (3).jpeg" alt="Memory 1">
+                        <div class="gallery-caption">
+                            <i class="fas fa-heart"></i> Our First outing <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 7.12.02 PM.jpeg" alt="Memory 2">
+                        <div class="gallery-caption">
+                            <i class="fas fa-heart"></i> Beach out <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 4.37.11 PM (1).jpeg" alt="Memory 3">
+                        <div class="gallery-caption">
+                            <i class="fas fa-heart"></i> Special Day <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 4.29.00 PM.jpeg" alt="Memory 4">
+                        <div class="gallery-caption">
+                            <i class="fas fa-heart"></i> Movie Date <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 4.26.51 PM.jpeg" alt="Memory 5">
+                        <div class="gallery-caption">
+                            <i class="fas fa-heart"></i> Together <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 7.59.12 PM.jpeg" alt="Memory 6">
+                        <div class="gallery-caption">
+                            <i class="fas fa-heart"></i> Us <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+            <!-- MEMORIES PANEL -->
+            <div id="memoriesPanel" class="content-panel">
+                <h2 style="font-size: 4rem; text-align: center; margin-bottom: 50px; font-family: 'Great Vibes';">
+                    <i class="fas fa-history"></i> Our Love Story <i class="fas fa-history"></i>
+                </h2>
+                
+                <div class="memories-timeline">
+                    <div class="timeline-line"></div>
+                    
+                    <div class="memory-item left">
+                        <div class="memory-content">
+                            <div class="memory-date">💕 2022 💕</div>
+                            <div class="memory-desc">
+                                <strong>The Beginning</strong><br>
+                                I saw you with your innocent face, making everyone laugh. That was the moment I knew - I had a crush on you. The sighing began...
+                            </div>
+                        </div>
+                        <div class="memory-emoji">🥰</div>
+                    </div>
+                    
+                    <div class="memory-item right">
+                        <div class="memory-content">
+                            <div class="memory-date">💖 2023 - NCACT Event 💖</div>
+                            <div class="memory-desc">
+                                <strong>From Strangers to Thick Friends</strong><br>
+                                The NCACT event changed everything. We got our first real chance to talk and became thick friends.
+                            </div>
+                        </div>
+                        <div class="memory-emoji">🎭</div>
+                    </div>
+                    
+                    <div class="memory-item left">
+                        <div class="memory-content">
+                            <div class="memory-date">💗 2023 💗</div>
+                            <div class="memory-desc">
+                                <strong>The Thickest Friends</strong><br>
+                                Our friendship deepened every day. We became inseparable, sharing secrets, laughs, and dreams.
+                            </div>
+                        </div>
+                        <div class="memory-emoji">🤝</div>
+                    </div>
+                    
+                    <div class="memory-item right">
+                        <div class="memory-content">
+                            <div class="memory-date">💘 2023 - That Night 💘</div>
+                            <div class="memory-desc">
+                                <strong>Sharing My Feelings</strong><br>
+                                One night, I gathered all my courage and shared my true feelings with you. You said yes. We committed to 3 beautiful months.
+                            </div>
+                        </div>
+                        <div class="memory-emoji">🌙</div>
+                    </div>
+                    
+                    <div class="memory-item left">
+                        <div class="memory-content">
+                            <div class="memory-date">💔 November 2023 💔</div>
+                            <div class="memory-desc">
+                                <strong>The Break</strong><br>
+                                We broke up. A long gap of 4 months began, but my heart never forgot you.
+                            </div>
+                        </div>
+                        <div class="memory-emoji">😢</div>
+                    </div>
+                    
+                    <div class="memory-item right">
+                        <div class="memory-content">
+                            <div class="memory-date">💫 2024 💫</div>
+                            <div class="memory-desc">
+                                <strong>Friendship Again</strong><br>
+                                We found our way back as friends. Another break, but fate had other plans.
+                            </div>
+                        </div>
+                        <div class="memory-emoji">🔄</div>
+                    </div>
+                    
+                    <div class="memory-item left">
+                        <div class="memory-content" style="border-color: #ffd700;">
+                            <div class="memory-date">✨ 22nd February 2025 ✨</div>
+                            <div class="memory-desc">
+                                <strong>The Day You Told Me Your Feelings</strong><br>
+                                YOU told ME. My heart exploded with joy. After all this time, we found our way back.
+                            </div>
+                        </div>
+                        <div class="memory-emoji">💝</div>
+                    </div>
+                    
+                    <div class="memory-item right">
+                        <div class="memory-content" style="border-color: #ff1493;">
+                            <div class="memory-date">💕 2026 - Almost 1 Year! 💕</div>
+                            <div class="memory-desc">
+                                <strong>Almost One Year Together</strong><br>
+                                From February 2025 until now - almost one year of love. Every struggle was worth it.
+                            </div>
+                        </div>
+                        <div class="memory-emoji">🎉</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CRINGE SECTION -->
+            <div id="cringePanel" class="content-panel">
+                <h2 style="font-size: 4rem; text-align: center; margin-bottom: 30px; font-family: 'Great Vibes';">
+                    <i class="fas fa-camera-retro"></i> Our Cringe Collection <i class="fas fa-camera-retro"></i>
+                </h2>
+                <p style="font-size: 2rem; text-align: center; margin-bottom: 50px; color: #ffd700;">The more cringe, the more love! 😜</p>
+                
+                <div class="cringe-grid">
+                    <div class="cringe-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 10.47.28 PM (3).jpeg" alt="Cringe 1">
+                        <div class="cringe-sticker">🤪</div>
+                    </div>
+                    <div class="cringe-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 10.47.28 PM (4).jpeg" alt="Cringe 2">
+                        <div class="cringe-sticker">😜</div>
+                    </div>
+                    <div class="cringe-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 10.47.28 PM (5).jpeg" alt="Cringe 3">
+                        <div class="cringe-sticker">🥴</div>
+                    </div>
+                    <div class="cringe-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 10.47.28 PM (6).jpeg" alt="Cringe 4">
+                        <div class="cringe-sticker">😝</div>
+                    </div>
+                    <div class="cringe-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 10.47.28 PM (7).jpeg" alt="Cringe 5">
+                        <div class="cringe-sticker">🤪</div>
+                    </div>
+                    <div class="cringe-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 10.47.28 PM (8).jpeg" alt="Cringe 6">
+                        <div class="cringe-sticker">🥳</div>
+                    </div>
+                    <div class="cringe-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 10.47.28 PM (9).jpeg" alt="Cringe 7">
+                        <div class="cringe-sticker">😎</div>
+                    </div>
+                    <div class="cringe-item">
+                        <img src="C:\Users\rappu\OneDrive\Desktop\mini\photos\WhatsApp Image 2026-02-13 at 10.47.28 PM.jpeg" alt="Cringe 8">
+                        <div class="cringe-sticker">🤓</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SURPRISE PANEL -->
+            <div id="surprisePanel" class="content-panel">
+                <h2 style="font-size: 4rem; text-align: center; margin-bottom: 50px; font-family: 'Great Vibes';">
+                    <i class="fas fa-star"></i> A Special Surprise <i class="fas fa-star"></i>
+                </h2>
+                
+                <div class="countdown-container">
+                    <h3 style="font-size: 2.8rem; margin-bottom: 50px; color: #ffd700;">Countdown to Next Valentine's Day</h3>
+                    <div class="countdown-timer" id="countdown">
+                        <div class="timer-block">
+                            <div class="timer-number" id="days">00</div>
+                            <div class="timer-label">Days</div>
+                        </div>
+                        <div class="timer-block">
+                            <div class="timer-number" id="hours">00</div>
+                            <div class="timer-label">Hours</div>
+                        </div>
+                        <div class="timer-block">
+                            <div class="timer-number" id="minutes">00</div>
+                            <div class="timer-label">Minutes</div>
+                        </div>
+                        <div class="timer-block">
+                            <div class="timer-number" id="seconds">00</div>
+                            <div class="timer-label">Seconds</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="font-size: 2.8rem; margin: 60px 0 40px; color: #ffd700;">My Promises to You</h3>
+                
+                <div class="promise-grid">
+                    <div class="promise-card">
+                        <div class="promise-emoji">💝</div>
+                        <h4 style="font-size: 2rem;">Always Love You</h4>
+                        <p style="font-size: 1.3rem;">Through every high and low, my love grows stronger</p>
+                    </div>
+                    <div class="promise-card">
+                        <div class="promise-emoji">🤝</div>
+                        <h4 style="font-size: 2rem;">Never Give Up</h4>
+                        <p style="font-size: 1.3rem;">No matter what, we face everything together</p>
+                    </div>
+                    <div class="promise-card">
+                        <div class="promise-emoji">😄</div>
+                        <h4 style="font-size: 2rem;">Make You Laugh</h4>
+                        <p style="font-size: 1.3rem;">Even with cringe jokes, I'll keep you smiling</p>
+                    </div>
+                    <div class="promise-card">
+                        <div class="promise-emoji">🗺️</div>
+                        <h4 style="font-size: 2rem;">Grow Together</h4>
+                        <p style="font-size: 1.3rem;">Building our future, hand in hand</p>
+                    </div>
+                    <div class="promise-card">
+                        <div class="promise-emoji">💪</div>
+                        <h4 style="font-size: 2rem;">Support You</h4>
+                        <p style="font-size: 1.3rem;">Your dreams are my dreams</p>
+                    </div>
+                    <div class="promise-card">
+                        <div class="promise-emoji">🏠</div>
+                        <h4 style="font-size: 2rem;">I'll always want to be your home</h4>
+                        <p style="font-size: 1.3rem;">Your safest place, always</p>
+                    </div>
+                </div>
+
+                <div style="background: linear-gradient(135deg, #ff1493, #ff69b4); padding: 60px; border-radius: 80px; margin-top: 60px; text-align: center;">
+                    <p style="font-size: 3rem; font-family: 'Great Vibes';">I Love You, Shivani! ❤️</p>
+                    <p style="font-size: 2rem; margin-top: 25px;">2022 ➡️ 2023 ➡️ 2024 ➡️ 2025 ➡️ Forever</p>
+                    <p style="font-size: 2.5rem; margin-top: 30px;">Almost 1 year together and just getting started!</p>
+                    <p style="font-size: 3.5rem; margin-top: 30px; font-family: 'Great Vibes';">En Azhagi ❤️ Appu</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fab" id="fab">
+        <i class="fas fa-heart"></i>
+    </div>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('floatingHearts');
+            const hearts = ['❤️', '💖', '💗', '💓', '💕', '💘', '💝'];
+            
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart-3d';
+                heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                container.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 15000);
+            }, 300);
+        }
+
+        // Start when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createHearts();
+            
+            const yesBtn = document.getElementById('yesBtn');
+            const noBtn = document.getElementById('noBtn');
+            const questionSection = document.getElementById('questionSection');
+            const contentWrapper = document.getElementById('contentWrapper');
+            const clickCounter = document.getElementById('clickCounter');
+            const fab = document.getElementById('fab');
+            
+            let noClicks = 0;
+            let yesScale = 1;
+            
+            const funnyMessages = [
+                "Are you sure? 🥺", "Really sure? 😢", "Think again! 🤔",
+                "Last chance! ⚠️", "I'm not giving up! 💪", "You're breaking my heart! 💔",
+                "Have mercy! 😭", "But I love you! 💕", "PLEASE PLEASE PLEASE! 🙏",
+                "I'll bring you chocolate! 🍫", "Pretty please? 🎀", "SHIVANI PLEASE! 💝",
+                "For Appu? 🥺", "En Azhagi please! ❤️", "Just say YES! 💖"
+            ];
+            
+            // NO button click
+            noBtn.addEventListener('click', function(e) {
+                noClicks++;
+                clickCounter.textContent = noClicks;
+                
+                // Change NO button text
+                const messageIndex = (noClicks - 1) % funnyMessages.length;
+                noBtn.textContent = funnyMessages[messageIndex];
+                
+                // Make YES button bigger
+                yesScale += 0.2;
+                yesBtn.style.transform = `scale(${yesScale})`;
+                yesBtn.style.transition = 'all 0.3s';
+                
+                // Move NO button
+                const randomX = Math.random() * 400 - 200;
+                const randomY = Math.random() * 400 - 200;
+                const randomRotate = Math.random() * 360 - 180;
+                const randomScale = Math.max(0.5, 1 - (noClicks * 0.03));
+                
+                noBtn.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRotate}deg) scale(${randomScale})`;
+                
+                // Show floating message
+                const message = document.createElement('div');
+                message.className = 'funny-message';
+                message.textContent = ['💔', '😭', '🥺', '😢'][Math.floor(Math.random() * 4)];
+                message.style.left = e.clientX + 'px';
+                message.style.top = e.clientY + 'px';
+                document.body.appendChild(message);
+                
+                setTimeout(() => message.remove(), 2000);
+            });
+            
+            // YES button click
+            yesBtn.addEventListener('click', function() {
+                // Hide question section
+                questionSection.style.display = 'none';
+                
+                // Show content
+                contentWrapper.classList.add('show');
+                fab.style.display = 'flex';
+                
+                // Start countdown
+                startCountdown();
+                
+                // Celebration confetti
+                for (let i = 0; i < 100; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        confetti.style.position = 'fixed';
+                        confetti.style.left = Math.random() * 100 + '%';
+                        confetti.style.top = '-10%';
+                        confetti.style.width = '10px';
+                        confetti.style.height = '10px';
+                        confetti.style.background = ['#ff1493', '#ff69b4', '#ffd700'][Math.floor(Math.random() * 3)];
+                        confetti.style.borderRadius = '50%';
+                        confetti.style.zIndex = '9999';
+                        confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+                        document.body.appendChild(confetti);
+                        
+                        setTimeout(() => confetti.remove(), 5000);
+                    }, i * 20);
+                }
+            });
+            
+            // Tab navigation
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const panels = document.querySelectorAll('.content-panel');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    panels.forEach(p => p.classList.remove('active'));
+                    
+                    const tab = this.dataset.tab;
+                    document.getElementById(tab + 'Panel').classList.add('active');
+                });
+            });
+            
+            // Floating button click
+            fab.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Countdown timer
+            function startCountdown() {
+                const nextYear = new Date().getFullYear() + 1;
+                const valentineDay = new Date(nextYear, 1, 14).getTime();
+                
+                function updateTimer() {
+                    const now = new Date().getTime();
+                    const diff = valentineDay - now;
+                    
+                    if (diff > 0) {
+                        document.getElementById('days').textContent = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                        document.getElementById('hours').textContent = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                        document.getElementById('minutes').textContent = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                        document.getElementById('seconds').textContent = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+                    }
+                }
+                
+                updateTimer();
+                setInterval(updateTimer, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
